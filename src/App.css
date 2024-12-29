@@ -1,0 +1,149 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #121212; /* Netflix-like dark background */
+  color: #f5c71a; /* Golden honey accent */
+}
+
+.App-header {
+  text-align: center;
+  padding: 20px;
+  background-color: #1a1a1a; /* Slightly lighter dark for contrast */
+  border-bottom: 3px solid #f5c71a;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.line {
+  width: 30px;
+  height: 3px;
+  background-color: #f5c71a;
+  transition: transform 0.3s ease;
+}
+
+.line.open:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+
+.line.open:nth-child(2) {
+  opacity: 0;
+}
+
+.line.open:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+.nav-menu {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  background-color: #1a1a1a;
+  padding: 20px;
+}
+
+.nav-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.nav-menu ul li {
+  margin: 10px 0;
+}
+
+.nav-menu ul li a {
+  text-decoration: none;
+  color: #f5c71a;
+  font-size: 1.2rem;
+}
+
+/* Alphabet search */
+.alphabet-search {
+  text-align: center;
+  padding: 20px;
+}
+
+.letters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.letter {
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: background-color 0.3s ease;
+}
+
+.letter.selected {
+  background-color: #f5c71a;
+  color: #121212;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  background-color: #1c1c1c;
+  border: 1px solid #f5c71a;
+  border-radius: 10px;
+  width: 300px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(245, 199, 26, 0.5); /* Golden glow */
+}
+
+.desc {
+  padding: 10px;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  color: #f5c71a;
+  text-shadow: 0px 0px 5px rgba(245, 199, 26, 0.7);
+}
+
+.card-genre {
+  font-size: 0.9rem;
+  color: #e6e6e6;
+}
+
+.trailer {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-bottom: 1px solid #f5c71a;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #1a1a1a;
+  color: #f5c71a;
+}
