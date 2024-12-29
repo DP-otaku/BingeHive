@@ -21,7 +21,7 @@ function App() {
       genre: "Comedy, Action, Fantasy, Romance",
       imgSrc: BeyondTheBoundaryImg,
       link: "https://hianime.to/beyond-the-boundary-855?ref=search",
-      trailer: "https://www.youtube.com/embed/trailer_link_1"
+      trailer: "https://www.youtube.com/watch?v=HU5EeNd1iXM&pp=ygUbYmV5b25kIHRoZSBib3VuZGFyeSB0cmFpbGVy"
     },
     {
       title: "Horimiya",
