@@ -9,11 +9,13 @@ import BulgasalImg from './assets/Bulgasal - Immortal Souls.jpg';
 import HyoukaImg from './assets/Hyouka.png';
 import FlowerOfEvilImg from './assets/Flower of Evil.jpg';
 import GoblinImg from './assets/Goblin - The Lonely And Great God.jpg';
-import MissionPossibleImg from './assets/Mission Possible.jpg'
+import MissionPossibleImg from './assets/Mission Possible.jpg';
+import FlexXCopImg from './assets/Flex-x-Cop.jpg';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchLetter, setSearchLetter] = useState('');
+  const [hoveredShow, setHoveredShow] = useState(null);
 
   const shows = [
     {
@@ -21,34 +23,34 @@ function App() {
       genre: "Comedy, Action, Fantasy, Romance",
       imgSrc: BeyondTheBoundaryImg,
       link: "https://hianime.to/beyond-the-boundary-855?ref=search",
-      trailer: "https://www.youtube.com/watch?v=HU5EeNd1iXM&pp=ygUbYmV5b25kIHRoZSBib3VuZGFyeSB0cmFpbGVy"
+      trailer: "https://www.youtube.com/embed/HU5EeNd1iXM"
     },
     {
       title: "Horimiya",
       genre: "Romance, Comedy",
       imgSrc: HorimiyaImg,
       link: "https://hianime.to/horimiya-15733?ref=search",
-      trailer: "https://www.youtube.com/embed/trailer_link_2"
+      trailer: "https://www.youtube.com/embed/GVQGWgeVc4k"
     },
     {
       title: "Angel's Last Mission: Love",
-      genre: "Comedy, Action, Fantasy, Romance",
+      genre: "Comedy, Romance, Drama, Fantasy",
       imgSrc: AngelImg,
       link: "https://goku.sx/series/watch-angels-last-mission-love-44918",
       trailer: "https://www.youtube.com/embed/trailer_link_1"
     },
     {
       title: "Crash Landing on You",
-      genre: "Comedy, Action, Fantasy, Romance",
+      genre: "Military, Comedy, Romance, Political",
       imgSrc: CrashLandingOnYouImg,
       link: "https://goku.sx/series/watch-crash-landing-on-you-60127",
       trailer: "https://www.youtube.com/embed/trailer_link_1"
     },
     {
-      title: "Bulgasal - Immortal Souls",
-      genre: "Comedy, Action, Fantasy, Romance",
+      title: "Bulgasal: Immortal Souls",
+      genre: "Thriller, Mystery, Drama, Fantasy",
       imgSrc: BulgasalImg,
-      link: "https://aniwatch.to/beyond-the-boundary-855?ref=search",
+      link: "https://goku.sx/series/watch-bulgasal-immortal-souls-75580",
       trailer: "https://www.youtube.com/embed/trailer_link_1"
     },
     {
@@ -60,23 +62,30 @@ function App() {
     },
     {
       title: "Flower of Evil",
-      genre: "Comedy, Action, Fantasy, Romance",
+      genre: "Thriller, Romance, Crime, Melodrama",
       imgSrc: FlowerOfEvilImg,
-      link: "https://aniwatch.to/beyond-the-boundary-855?ref=search",
+      link: "https://goku.sx/movie/watch-mission-possible-68887",
       trailer: "https://www.youtube.com/embed/trailer_link_1"
     },
     {
       title: "Goblin - The Lonely And Great God",
-      genre: "Action, Comedy, Fantasy, Romance",
+      genre: "Comedy, Romance, Fantasy, Melodrama",
       imgSrc: GoblinImg,
-      link: "https://aniwatch.to/beyond-the-boundary-855?ref=search",
+      link: "https://goku.sx/movie/watch-mission-possible-68887",
       trailer: "https://www.youtube.com/embed/trailer_link_1"
     },
     {
       title: "Mission: Possible",
       genre: "Action, Comedy",
       imgSrc: MissionPossibleImg,
-      link: "https://aniwatch.to/beyond-the-boundary-855?ref=search",
+      link: "https://goku.sx/movie/watch-mission-possible-68887",
+      trailer: "https://www.youtube.com/embed/trailer_link_1"
+    },
+    {
+      title: "Flex X Cop",
+      genre: "Action, Thriller, Mystery, Comedy",
+      imgSrc: FlexXCopImg,
+      link: "https://goku.sx/series/watch-flex-x-cop-105640",
       trailer: "https://www.youtube.com/embed/trailer_link_1"
     },
   ];
@@ -134,21 +143,24 @@ function App() {
             <div
               key={index}
               className="card"
-              onMouseEnter={(e) => {
-                const video = e.currentTarget.querySelector("video");
-                if (video) video.play();
-              }}
-              onMouseLeave={(e) => {
-                const video = e.currentTarget.querySelector("video");
-                if (video) video.pause();
-              }}
+              onMouseEnter={() => setHoveredShow(index)}
+              onMouseLeave={() => setHoveredShow(null)}
             >
               <a href={show.link} target="_blank" rel="noreferrer">
                 <div className="desc">
-                  <video className="trailer" muted loop poster={show.imgSrc}>
-                    <source src={show.trailer} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
+                  <div className="media-container">
+                    {hoveredShow === index ? (
+                      <iframe
+                        className="trailer"
+                        src={show.trailer}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        title={show.title}
+                      ></iframe>
+                    ) : (
+                      <img src={show.imgSrc} alt={show.title} className="poster" />
+                    )}
+                  </div>
                   <h3 className="card-title">{show.title}</h3>
                   <p className="card-genre">Genre: {show.genre}</p>
                 </div>
